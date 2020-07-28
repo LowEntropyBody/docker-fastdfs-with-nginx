@@ -1,0 +1,17 @@
+version: '2.0'
+services:
+  crust:
+    image: 'lowentropybody/nginx-fastdfs:0.1.0'
+    network_mode: host
+    volumes:
+      - '/tracker_path:/tracker_path'
+      - '/storage_path1:/storage_path1'
+      - '/storage_path2:/storage_path2'
+    environment:
+        NGINX_PORT: '8888'
+        TRACKER_ADDRESS: '127.0.0.1:22122'
+        TRACKER_PATH: '/tracker_path'
+        STORAGE_PORT: '23000'
+        STORAGE_PATHS: '/storage_path1 /storage_path2'
+    container_name: nginx-fastdfs-0.1.0
+    restart: always

@@ -1,4 +1,4 @@
-FROM nginx
+FROM ubuntu:16.04
 RUN wget ``https://github.com/happyfish100/libfastcommon/archive/V1.0.7.tar.gz
 RUN tar -zxvf V1.0.7.tar.gz
 RUN cd libfastcommon-1.0.7 && ./make.sh && ./make.sh install && cd ..
