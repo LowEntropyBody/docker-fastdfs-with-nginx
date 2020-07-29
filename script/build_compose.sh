@@ -21,5 +21,4 @@ $(for el in $STORAGE_PATHS; do echo "      - '$el:$el'"; done)
         STORAGE_PORT: '$STORAGE_PORT'
         STORAGE_PATHS: '$STORAGE_PATHS'
     container_name: nginx-fastdfs-0.1.0
-    restart: always
 EOF
