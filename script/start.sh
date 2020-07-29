@@ -28,5 +28,21 @@ fdfs_storaged /etc/fdfs/storage.conf.sample_real start
 
 # Show fdfs
 echo ------------show fastdfs thread-------------------
-sleep 3
-ps -ef | grep fdfs
+sleep 2
+ps -ef | grep fdfs_
+
+# Copy fastdf configurations
+echo ----------- copy fastdf configurations ------------
+cd /fastdfs/conf
+cp http.conf mime.types /etc/fdfs
+
+# Start nginx
+echo ----------- start nginx ------------
+cd /usr/local/nginx
+./sbin/nginx
+./sbin/nginx -s reload
+
+# Show nginx thread
+echo ------------show nginx thread-------------------
+sleep 2
+ps -ef | grep nginx
