@@ -107,7 +107,6 @@ fi
 ### Modify fastdfs file
 if [ x"$mod_fastdfs_file" != x"" ]; then
     storage_path_arry=($(echo $STORAGE_PATHS))
-    sed -i "/^\bbase_path\b/c base_path=$STORAGE_PATH" $mod_fastdfs_file &>/dev/null
     sed -i "/^\btracker_server\b/c tracker_server=$TRACKER_ADDRESS" $mod_fastdfs_file &>/dev/null
     sed -i "/^\bstorage_server_port\b/c storage_server_port=$STORAGE_PORT" $mod_fastdfs_file &>/dev/null
     sed -i "/^\burl_have_group_name\b/c url_have_group_name=true" $mod_fastdfs_file &>/dev/null
