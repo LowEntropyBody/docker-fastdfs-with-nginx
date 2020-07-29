@@ -46,3 +46,7 @@ cd /usr/local/nginx
 echo ------------show nginx thread-------------------
 sleep 2
 ps -ef | grep nginx
+
+while true; do
+sleep 1
+done
