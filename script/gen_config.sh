@@ -63,6 +63,9 @@ if [ $? -ne 0 ]; then
     echo "[ERROR] Storage set failed!Set tacker server failed!"
     exit 1
 fi
+# Delete duplicated tracker_server
+storage_server_paths=($(sed -n "/^tracker_server = /=" $storage_real_file))
+sed -i "${storage_server_paths[1]} d" $storage_real_file &>/dev/null
 
 ### Generate tracker file
 tracker_port=${TRACKER_ADDRESS##*:}

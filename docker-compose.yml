@@ -8,7 +8,6 @@ services:
       - '/storage_path1:/storage_path1'
       - '/storage_path2:/storage_path2'
     environment:
-        NGINX_PORT: '8888'
         TRACKER_ADDRESS: '127.0.0.1:22123'
         TRACKER_PATH: '/tracker_path'
         STORAGE_PORT: '23001'
