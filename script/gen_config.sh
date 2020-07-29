@@ -64,6 +64,8 @@ if [ x"$storage_real_file" != x"" ]; then
         echo "[ERROR] Storage set failed!Set storage port failed!"
         exit 1
     fi
+    # Set base path
+    sed -i "/^\bbase_path\b/c base_path = $STORAGE_PATH" $storage_real_file &>/dev/null
     # Set store path
     storage_path_arry=($(echo $STORAGE_PATHS))
     sed -i "/^\bstore_path_count\b/c store_path_count=${#storage_path_arry[@]}" $storage_real_file &>/dev/null

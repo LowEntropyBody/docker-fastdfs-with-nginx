@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # Create directories
-echo ----------------create directories----------------------
 mkdir -p $TRACKER_PATH
 mkdir -p $STORAGE_PATH
 
@@ -29,4 +28,5 @@ fdfs_storaged /etc/fdfs/storage.conf.sample_real start
 
 # Show fdfs
 echo ------------show fastdfs thread-------------------
-netstat -unltp|grep fdfs
+sleep 3
+ps -ef | grep fdfs
