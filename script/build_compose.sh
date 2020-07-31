@@ -20,5 +20,6 @@ $(for el in $STORAGE_PATHS; do echo "      - '$el:$el'"; done)
         STORAGE_PATH: '$STORAGE_PATH'
         STORAGE_PORT: '$STORAGE_PORT'
         STORAGE_PATHS: '$STORAGE_PATHS'
+        RESERVED_STORAGE_SPACE: '$RESERVED_STORAGE_SPACE'
     container_name: nginx-fastdfs-0.1.0
 EOF

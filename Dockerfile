@@ -23,4 +23,4 @@ RUN cd /nginx-1.16.1 && make && make install
 COPY script/*.sh  /script/ 
 COPY ./config/nginx.conf /usr/local/nginx/conf/
 
-CMD /script/gen_config.sh -s /etc/fdfs/storage.conf.sample -t /etc/fdfs/tracker.conf.sample -m /etc/fdfs/mod_fastdfs.conf && /script/start.sh
+CMD /script/start.sh

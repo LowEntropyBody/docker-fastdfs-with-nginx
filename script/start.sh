@@ -11,11 +11,16 @@ while [ $i -lt ${#storage_path_arry[@]} ]; do
     ((i++))
 done
 
+# Generate configurations
+/script/gen_config.sh -s /etc/fdfs/storage.conf.sample -t /etc/fdfs/tracker.conf.sample -m /etc/fdfs/mod_fastdfs.conf -c /etc/fdfs/client.conf.sample
+
 # Show configurations
 echo ----------------tracker.conf----------------------
 cat /etc/fdfs/tracker.conf.sample_real
 echo ----------------storage.conf----------------------
 cat /etc/fdfs/storage.conf.sample_real
+echo ----------------client.conf----------------------
+cat /etc/fdfs/client.conf.sample_real
 echo ----------------mod_fastdfs.conf----------------------
 cat /etc/fdfs/mod_fastdfs.conf
 echo ----------------nginx.conf----------------------
@@ -46,6 +51,12 @@ cd /usr/local/nginx
 echo ------------show nginx thread-------------------
 sleep 2
 ps -ef | grep nginx
+
+# Test upload
+tracker_ip=${TRACKER_ADDRESS%%:*}
+echo '你成功了，请关注LowEntropyBody！You are successful, please follow LowEntropyBody!' > test.txt
+storage_key=`fdfs_upload_file /etc/fdfs/client.conf.sample_real test.txt`
+echo 'Please go to browser and use this http://$tracker_ip:8888/$storage_key to determine whether fdfs is successfully started.'
 
 while true; do
 sleep 1

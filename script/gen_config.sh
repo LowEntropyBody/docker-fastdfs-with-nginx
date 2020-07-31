@@ -6,6 +6,7 @@ cat << EOF
     -s : storage template file
     -t : tracker template file
     -m : to be modified fastdfs file
+    -c : client template file
 EOF
 
 }
@@ -27,7 +28,7 @@ function setOPTARG()
 basedir=$(cd `dirname $0`;pwd)
 
 getoption=0
-while getopts "s:t:m:" opt; do
+while getopts "s:t:m:c:" opt; do
     case $opt in
         s) 
             setOPTARG storage_tmp_file $OPTARG
@@ -41,6 +42,11 @@ while getopts "s:t:m:" opt; do
             ;;
         m)
             setOPTARG mod_fastdfs_file $OPTARG
+            ;;
+        c) 
+            setOPTARG client_tmp_file $OPTARG
+            client_real_file=${client_tmp_file}_real
+            cp $client_tmp_file $client_real_file
             ;;
         *) 
             echo "[ERROR] Invalid option!"
@@ -92,10 +98,17 @@ fi
 ### Generate tracker file
 if [ x"$tracker_real_file" != x"" ]; then
     tracker_port=${TRACKER_ADDRESS##*:}
+    reserved_storage_space=$RESERVED_STORAGE_SPACE
     # Set port
     sed -i "/^\bport\b/c port = $tracker_port" $tracker_real_file &>/dev/null
     if [ $? -ne 0 ]; then
         echo "[ERROR] Tracker set failed!Set tacker port failed!"
+        exit 1
+    fi
+    # Set reserved_storage_space
+    sed -i "/^\breserved_storage_space\b/c reserved_storage_space = $reserved_storage_space" $tracker_real_file &>/dev/null
+    if [ $? -ne 0 ]; then
+        echo "[ERROR] Tracker set failed!Set tacker reserved storage space failed!"
         exit 1
     fi
     # Set base path
@@ -123,4 +136,10 @@ if [ x"$mod_fastdfs_file" != x"" ]; then
         ((j++))
     done
     sed -i "$storage_path_pos d" $mod_fastdfs_file
+fi
+
+### Generate client file
+if [ x"$client_real_file" != x"" ]; then
+    # Set tracker server
+    sed -i "/^\btracker_server\b/c tracker_server=$TRACKER_ADDRESS" $client_real_file &>/dev/null
 fi
