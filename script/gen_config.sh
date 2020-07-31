@@ -142,4 +142,5 @@ fi
 if [ x"$client_real_file" != x"" ]; then
     # Set tracker server
     sed -i "/^\btracker_server\b/c tracker_server=$TRACKER_ADDRESS" $client_real_file &>/dev/null
-fi
+    # Set base path
+    sed -i "/^\bbase_path\b/c base_path = /tmp/client" $client_real_file &>/dev/nullfi

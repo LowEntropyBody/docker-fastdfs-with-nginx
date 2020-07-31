@@ -3,6 +3,7 @@
 # Create directories
 mkdir -p $TRACKER_PATH
 mkdir -p $STORAGE_PATH
+mkdir -p /tmp/client
 
 storage_path_arry=($(echo $STORAGE_PATHS))
 i=0
@@ -56,7 +57,7 @@ ps -ef | grep nginx
 tracker_ip=${TRACKER_ADDRESS%%:*}
 echo '你成功了，请关注LowEntropyBody！You are successful, please follow LowEntropyBody!' > test.txt
 storage_key=`fdfs_upload_file /etc/fdfs/client.conf.sample_real test.txt`
-echo 'Please go to browser and use this http://$tracker_ip:8888/$storage_key to determine whether fdfs is successfully started.'
+echo Please go to browser and use this http://$tracker_ip:8888/$storage_key to determine whether fdfs is successfully started.
 
 while true; do
 sleep 1
