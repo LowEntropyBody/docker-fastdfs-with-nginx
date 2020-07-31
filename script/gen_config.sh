@@ -143,4 +143,8 @@ if [ x"$client_real_file" != x"" ]; then
     # Set tracker server
     sed -i "/^\btracker_server\b/c tracker_server=$TRACKER_ADDRESS" $client_real_file &>/dev/null
     # Set base path
-    sed -i "/^\bbase_path\b/c base_path = /tmp/client" $client_real_file &>/dev/nullfi
+    sed -i "/^\bbase_path\b/c base_path = /tmp/client" $client_real_file &>/dev/null
+    # Delete duplicated tracker_server
+    server_paths=($(sed -n "/^\btracker_server\b/=" $client_real_file))
+    sed -i "$client_real_file d" $storage_real_file &>/dev/null
+fi
