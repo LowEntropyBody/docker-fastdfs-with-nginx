@@ -54,6 +54,8 @@ sleep 2
 ps -ef | grep nginx
 
 # Test upload
+echo Waiting 120s....
+sleep 120
 tracker_ip=${TRACKER_ADDRESS%%:*}
 echo 'You are successful, please go to https://github.com/LowEntropyBody to follow author 'LowEntropyBody' in github! ' > test.txt
 storage_key=`fdfs_upload_file /etc/fdfs/client.conf.sample_real test.txt`

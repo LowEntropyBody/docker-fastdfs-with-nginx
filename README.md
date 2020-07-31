@@ -40,7 +40,6 @@ sudo docker-compose up -d
 sudo docker logs nginx-fastdfs-0.1.0 -f
 ```
 
-
 ## 开放端口
 
 开放Tracker端口
@@ -59,7 +58,7 @@ sudo ufw allow 8888
 ```
 
 ## 浏览器下载测试
-打开浏览器测试下面链接，注意要替换$tracker_ip与$storage_key（参考启动之后的日志中出现）
+等待2分钟, 打开浏览器测试下面链接，注意要替换$tracker_ip与$storage_key（参考启动之后的日志中出现）
 
 http://$tracker_ip:8888/$storage_key
 
