@@ -62,3 +62,5 @@ sudo ufw allow 8888
 打开浏览器测试下面链接，注意要替换$tracker_ip与$storage_key（参考启动之后的日志中出现）
 
 http://$tracker_ip:8888/$storage_key
+
+## 觉得好用的话，请星一下支持一波，如有疑问请在issue提出~~~~

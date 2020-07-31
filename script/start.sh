@@ -55,7 +55,7 @@ ps -ef | grep nginx
 
 # Test upload
 tracker_ip=${TRACKER_ADDRESS%%:*}
-echo '你成功了，请关注LowEntropyBody！You are successful, please follow LowEntropyBody!' > test.txt
+echo 'You are successful, please go to https://github.com/LowEntropyBody to follow author 'LowEntropyBody' in github! ' > test.txt
 storage_key=`fdfs_upload_file /etc/fdfs/client.conf.sample_real test.txt`
 echo Please go to browser and use this http://$tracker_ip:8888/$storage_key to determine whether fdfs is successfully started.
 
