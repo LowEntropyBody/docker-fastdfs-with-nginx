@@ -47,11 +47,6 @@ Open tracker port
 sudo ufw allow 22122
 ```
 
-Open storage port
-```shell
-sudo ufw allow 23000
-```
-
 Open nginx port
 ```shell
 sudo ufw allow 8888
