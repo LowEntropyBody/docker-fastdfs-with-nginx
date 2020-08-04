@@ -1,5 +1,5 @@
-# docker-fastdfs-with-nginx
-Use Docker to build Fastdfs on a single machine and start Nginx at the same time
+# docker-fastdfs
+Use Docker to build Fastdfs on a single machine
 
 ## Modify the fdfs configuration
 
