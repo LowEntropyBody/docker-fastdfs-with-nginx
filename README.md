@@ -10,7 +10,7 @@ vim config/fdfs.conf
 
 Configuration list：
 ```shell
-# Configure the tracker address, it must be an external address
+# Configure the tracker address, it must be an external address (does not support DNS)
 TRACKER_ADDRESS='192.168.50.11:22122'
 # Tracker basic data storage location
 TRACKER_PATH='/fastdfs/tracker'
