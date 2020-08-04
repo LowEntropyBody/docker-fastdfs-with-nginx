@@ -37,7 +37,7 @@ sudo docker-compose up -d
 
 Logs：
 ```shell
-sudo docker logs nginx-fastdfs-0.1.0 -f
+sudo docker logs fastdfs-0.1.0 -f
 ```
 
 ## Open ports
@@ -46,20 +46,5 @@ Open tracker port
 ```shell
 sudo ufw allow 22122
 ```
-
-Open storage port
-```shell
-sudo ufw allow 23000
-```
-
-Open nginx port
-```shell
-sudo ufw allow 8888
-```
-
-## Browser download test
-Wait 2 minutes, open the browser to test the link below, pay attention to replace $tracker_ip and $storage_key (refer to the log after startup)
-
-http://$tracker_ip:8888/$storage_key
 
 ## If you find it easy to use, please star this repo. If you have any questions, please raise it in the issue~~~~
