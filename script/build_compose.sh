@@ -7,8 +7,8 @@ basedir=$(cd $scriptdir/..;pwd)
 cat << EOF > $basedir/docker-compose.yml
 version: '2.0'
 services:
-  nginx-fastdfs:
-    image: 'lowentropybody/nginx-fastdfs:0.1.0'
+  fastdfs:
+    image: 'lowentropybody/fastdfs:0.1.0'
     network_mode: host
     volumes:
       - '$TRACKER_PATH:$TRACKER_PATH'
@@ -21,5 +21,5 @@ $(for el in $STORAGE_PATHS; do echo "      - '$el:$el'"; done)
         STORAGE_PORT: '$STORAGE_PORT'
         STORAGE_PATHS: '$STORAGE_PATHS'
         RESERVED_STORAGE_SPACE: '$RESERVED_STORAGE_SPACE'
-    container_name: nginx-fastdfs-0.1.0
+    container_name: fastdfs-0.1.0
 EOF
