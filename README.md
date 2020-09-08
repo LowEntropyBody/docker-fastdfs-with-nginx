@@ -45,6 +45,7 @@ sudo docker logs fastdfs-0.1.0 -f
 Open tracker port
 ```shell
 sudo ufw allow 22122
+sudo ufw allow 23000
 ```
 
 ## If you find it easy to use, please star this repo. If you have any questions, please raise it in the issue~~~~
