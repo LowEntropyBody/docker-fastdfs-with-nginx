@@ -73,7 +73,7 @@ if [ x"$storage_real_file" != x"" ]; then
     # Set base path
     sed -i "/^\bbase_path\b/c base_path = $STORAGE_PATH" $storage_real_file &>/dev/null
     # Set check_store_path_mark false
-    sed -i "/^\check_store_path_mark\b/c check_store_path_mark = false" $storage_real_file &>/dev/null
+    sed -i "/^\bcheck_store_path_mark\b/c check_store_path_mark = false" $storage_real_file &>/dev/null
     # Set store path
     storage_path_arry=($(echo $STORAGE_PATHS))
     sed -i "/^\bstore_path_count\b/c store_path_count=${#storage_path_arry[@]}" $storage_real_file &>/dev/null
